@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.todo1.mystore.dto.ProductDTO;
 import com.todo1.mystore.exception.ProductAlreadyExistException;
 import com.todo1.mystore.repository.IProductRepository;
+import com.todo1.mystore.vo.ProductVO;
 
 @ExtendWith(MockitoExtension.class)
 class ProductServiceTests {
@@ -24,7 +25,7 @@ class ProductServiceTests {
 
 	@Test
 	void GivenAProduct_WhenItDoesNotExist_ThenItIsSaved() {
-		var product = new ProductDTO();
+		var product = new ProductVO();
 		product.setId(1L);
 		product.setName("Gaseosa XX");
 				
@@ -37,11 +38,15 @@ class ProductServiceTests {
 	
 	@Test
 	void GivenAProduct_WhenItExists_ThenAProductAlreadyExistExceptionIsThrown() {
-		var product = new ProductDTO();
+		var product = new ProductVO();
 		product.setId(1L);
 		product.setName("Gaseosa XX");
 		
-		when(productRepository.findByName("Gaseosa XX")).thenReturn(Optional.of(product));
+		var productFound = new ProductDTO();
+		productFound.setId(1L);
+		productFound.setName("Gaseosa XX");
+		
+		when(productRepository.findByName("Gaseosa XX")).thenReturn(Optional.of(productFound));
 				
 		try {
 			productService.save(product);

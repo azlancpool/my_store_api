@@ -3,8 +3,10 @@
  */
 package com.todo1.mystore.service;
 
-import com.todo1.mystore.dto.ProductDTO;
+import java.util.List;
+
 import com.todo1.mystore.exception.ProductAlreadyExistException;
+import com.todo1.mystore.vo.ProductVO;
 
 /**
  * @author cnaranjo
@@ -12,6 +14,8 @@ import com.todo1.mystore.exception.ProductAlreadyExistException;
  */
 public interface IProductService {
 
-	void save(ProductDTO product) throws ProductAlreadyExistException;
+	void save(ProductVO product) throws ProductAlreadyExistException;
+	
+	List<ProductVO> allProducts();
 
 }
