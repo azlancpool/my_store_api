@@ -3,6 +3,8 @@
  */
 package com.todo1.mystore.vo;
 
+import java.math.BigDecimal;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -24,5 +26,9 @@ public class ProductVO {
 	@NotNull
 	@Min(value = 1, message = "The initial amount of a product must be upper than 1.")
 	private Integer initialAmount;
+	
+	@NotNull
+	@Min(value = 1, message = "The unit value of a product must be upper than 1.")
+	private BigDecimal unitValue;
 
 }

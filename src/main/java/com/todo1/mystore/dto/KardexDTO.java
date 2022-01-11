@@ -15,6 +15,7 @@ import javax.persistence.SequenceGenerator;
 import com.todo1.mystore.vo.ETransactionType;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author cnaranjo
@@ -22,6 +23,7 @@ import lombok.Data;
  */
 @Entity
 @Data
+@NoArgsConstructor
 public class KardexDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence")
@@ -40,4 +42,17 @@ public class KardexDTO {
 	private BigDecimal unitValue;
 	
 	private BigDecimal totalValue;
+
+	public KardexDTO(ProductDTO product, ETransactionType transactionType, String detail, int amount,
+			BigDecimal unitValue) {
+		super();
+		this.product = product;
+		this.transactionType = transactionType;
+		this.detail = detail;
+		this.amount = amount;
+		this.unitValue = unitValue;
+		this.totalValue = unitValue.multiply(new BigDecimal(amount));
+	}
+	
+	
 }
