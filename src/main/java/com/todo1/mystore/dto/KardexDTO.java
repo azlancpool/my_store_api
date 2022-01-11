@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
+import com.todo1.mystore.vo.ETransactionType;
+
 import lombok.Data;
 
 /**
@@ -29,7 +31,7 @@ public class KardexDTO {
 	@ManyToOne
 	private ProductDTO product;
 
-	private String transactionType;
+	private ETransactionType transactionType;
 	
 	private String detail;
 	
