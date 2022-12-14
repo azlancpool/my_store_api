@@ -25,7 +25,7 @@ import com.todo1.mystore.vo.ProductVO;
  *
  */
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
 	@Autowired
