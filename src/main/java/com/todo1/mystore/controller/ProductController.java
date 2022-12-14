@@ -20,10 +20,6 @@ import com.todo1.mystore.exception.ProductAlreadyExistException;
 import com.todo1.mystore.service.IProductService;
 import com.todo1.mystore.vo.ProductVO;
 
-/**
- * @author cnaranjo
- *
- */
 @RestController
 @RequestMapping("/product")
 public class ProductController {
