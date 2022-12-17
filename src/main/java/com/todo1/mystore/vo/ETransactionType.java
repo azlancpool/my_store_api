@@ -11,5 +11,4 @@ public enum ETransactionType {
 	INIT_TRANSACTION,
 	BOUGHT,
 	SOLD,
-	CURRENT,
 }
